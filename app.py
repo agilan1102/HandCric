@@ -148,6 +148,9 @@ def bat():
         fingerTips = 0
         tipIds = [4, 8, 12, 16, 20]
 
+        if landmarks[tipIds[0]][2] > landmarks[tipIds[0] - 1][2] and landmarks[tipIds[0]][2] > landmarks[tipIds[1]][2]:
+            fingerTips += 1
+            return 6
         # Check if thumb is up
         if landmarks[tipIds[0]][1] > landmarks[tipIds[0] - 1][1]:
             fingerTips += 1
@@ -179,12 +182,12 @@ def bat():
                 if len(lmList) != 0:
                     finger = fingers(lmList)
                     bowl = finger
-                    if bowl == 5 :
-                        bowl = 6
+                    # if bowl == 5 :
+                    #     bowl = 6
                     # Match 
-                    autoBat = random.randint(0,5)
-                    if autoBat == 5 :
-                        autoBat = 6
+                    autoBat = random.randint(0,6)
+                    # if autoBat == 5 :
+                    #     autoBat = 6
                     if bowl != autoBat :
                         computer += autoBat
                         highscore = max(computer,highscore)
@@ -310,4 +313,3 @@ def profile():
 
 if __name__ == '__main__':
     app.run()
-
