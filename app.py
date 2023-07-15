@@ -17,6 +17,8 @@ global tossResult
 def login():
     return render_template('login.html')
 
+
+
 @app.route('/login', methods=['POST'])
 def login_post():
     email = request.form['email']
